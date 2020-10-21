@@ -296,6 +296,7 @@ object solution {
             @tailrec def retry(): Option[T] = {
               bucket.get match {
                 case (Nil, stamp) =>
+                  nonEmptyBucket.remove(i)
                   sum += stamp
                   None
                 case v @ (lst, stamp) =>
